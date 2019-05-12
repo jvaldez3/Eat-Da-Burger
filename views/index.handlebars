@@ -1,0 +1,23 @@
+<div>
+    <h1>Burgers</h1>
+    <hr>
+    <hr>
+    <h4>Add a Burger</h4>
+    <input type="text" id="add">
+    <button id="addBurger">Add Burger</button>
+    <hr>
+    <h4>Not Devoured</h4>
+    <hr>
+</div>
+{{/each}}
+<hr>
+<h4>Devoured</h4>
+{{#each burgers}}
+<div>
+
+    {{#unless devoured}}
+    <p>{{this.name}}</p>
+    <button data-id={{this.id}} class="devoured">Submit</button>
+    <hr>
+    {{/unless}}
+</div>

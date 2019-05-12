@@ -1,24 +1,24 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    all: function (data) {
-        orm.all("burgers", function (res) {
-            data(res);
+    all: function (cb) {
+        orm.selectAll("burgers", cb, function (res) {
+            cb(res);
         });
     },
-    create: function (cols, vals, data) {
+    create: function (cols, vals, cb) {
         orm.create("burgers", cols, vals, function (res) {
-            data(res);
+            cb(res);
         });
     },
-    update: function (objColVals, condition, data) {
+    update: function (objColVals, condition, cb) {
         orm.update("burgers", objColVals, condition, function (res) {
-            data(res);
+            cb(res);
         });
     },
     delete: function (condition, cb) {
         orm.delete("burgers", condition, function (res) {
-            data(res);
+            cb(res);
         });
     }
 };

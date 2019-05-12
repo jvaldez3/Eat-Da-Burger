@@ -1,6 +1,7 @@
 var express = require("express");
+var exphbs = require("express-handlebars");
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3307;
 
 var app = express();
 
@@ -10,8 +11,6 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
-
-var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
