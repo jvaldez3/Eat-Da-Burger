@@ -1,11 +1,11 @@
 var express = require("express");
 
-var router = express.Router();
-
 var burgerModel = require("../models/burger.js");
 
+var router = express.Router();
+
 router.get("/", function (req, res) {
-    burgerModel.all(function (data) {
+    burgerModel.selectAll(function (data) {
         var burgerObj = {
             burgers: data
         };
@@ -14,44 +14,44 @@ router.get("/", function (req, res) {
     });
 });
 
-// router.post("/api/burgers", function (req, res) {
-//     burgerModel.create([
-//         "name", "devoured"
-//     ], [
-//         req.body.name, req.body.devoured
-//     ], function (result) {
-//         res.json({
-//             id: result.insertId
-//         });
-//     });
-// });
+router.post("/api/burgers", function (req, res) {
+    burgerModel.create([
+        "burger_name", "devoured"
+    ], [
+        req.body.burger_name, req.body.devoured
+    ], function (result) {
+        res.json({
+            id: result.insertId
+        });
+    });
+});
 
-// router.put("/api/burgers/:id", function (req, res) {
-//     var condition = "id = " + req.params.id;
+router.put("/api/burgers/:id", function (req, res) {
+    var condition = "id = " + req.params.id;
 
-//     console.log("condition", condition);
+    console.log("condition", condition);
 
-//     burgerModel.update({
-//         devoured: req.body.devoured
-//     }, condition, function (result) {
-//         if (result.changedRows == 0) {
-//             return res.status(404).end();
-//         } else {
-//             res.status(200).end();
-//         }
-//     });
-// });
+    burgerModel.update({
+        devoured: req.body.devoured
+    }, condition, function (result) {
+        if (result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 
-// router.delete("/api/burgers/:id", function (req, res) {
-//     var condition = "id = " + req.params.id;
+router.delete("/api/burgers/:id", function (req, res) {
+    var condition = "id = " + req.params.id;
 
-//     cat.delete(condition, function (result) {
-//         if (result.affectedRows == 0) {
-//             return res.status(404).end();
-//         } else {
-//             res.status(200).end();
-//         }
-//     });
-// });
+    burgerModel.delete(condition, function (result) {
+        if (result.affectedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 
 module.exports = router;
