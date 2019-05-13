@@ -1,57 +1,58 @@
 <div class="container">
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4 text-center">Josh's Burgers</h1>
-            <p class="lead"></p>
-            <img class="rounded mx-auto d-block" src="../public/assets/image/burgr-hellskitchen.jpg" alt="pusheen">
-            <hr class="my-4">
-            <form class="create-burger">
-                <div class="form-inline justify-content-center">
-                    <label for="newburger">What would you like to order?</label>
-                    <div class="form-group">
-                        <input type="text" class="form-control mx-sm-3" id="burg" name="name" required>
-                        <button type="submit" class="btn btn-primary my-1">Create Burger</button>
-                    </div>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Josh's Burgers</h1>
+        <p class="display-6 text-center">Eat Da Burger.</p>
+        <img class="rounded mx-auto d-block" height="200px" width="250px" src="/assets/image/burgr-hellskitchen.jpg"
+            alt="delicious-burger">
+        <hr>
+        <h2 id="color-override">Make a Burger</h2>
+        <br>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="newburger" id="color-override">New Burger:</label>
+                    <input type="text" id="newburger" name="burger">
+                    <button type="submit" class="btn btn-dark" id="addburger">Add Burger</button>
                 </div>
             </form>
-            <hr class="my-4">
-            <div class="row">
-                <div class="col-md-6">
-
-                    <p class="lead text-center">Yum!</p>
-
-                    <ul class="list-group">
+        </panel>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center" id="leftTitle"><strong>New Burgers</strong></div>
+                <div class="panel-body">
+                    <ul>
                         {{#each burgers}}
                         {{#unless devoured}}
-                        <li class="list-group-item">
-                            <button data-id="{{this.id}}" class="btn btn-primary devourBurger"><i
-                                    class="fas fa-hamburger"></i>
-                                Eat the '{{this.name}}'</button>
-                        </li>
+                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="button" class="devourBurger btn btn-dark" id="devour-button" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
+                        <hr>
                         {{/unless}}
                         {{/each}}
                     </ul>
-
                 </div>
-
-                <div class="col-md-6">
-                    <p class="lead text-center">BURGERS LIST</p>
-
-                    <ul class="list-group">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center" id="rightTitle"><strong>Devoured Burgers</strong></div>
+                <div class="panel-body">
+                    <ul>
                         {{#each burgers}}
                         {{#if devoured}}
-                        <li class="list-group-item">
-                            {{this.name}}
-                        </li>
+                        <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                        <button type="button" class="deleteBurger btn btn-danger" id="delete" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                        <hr>
                         {{/if}}
                         {{/each}}
                     </ul>
-
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
