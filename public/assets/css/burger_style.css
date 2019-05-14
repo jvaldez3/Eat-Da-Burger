@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url("/assets/image/spey-burger-restaurant.jpg");
+    background: url('../image/Burger-Beyond-Shoreditch-restaurant-London_wrbm_large.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -11,12 +11,7 @@
     border-radius: 5px;
 }
 
-#color-override {
-    color: #fff;
-}
-
 #leftTitle {
-    background-color: #5cb85c;
     color: white;
     text-align: center;
     font-size: 1.2em;
@@ -28,7 +23,6 @@
 }
 
 #rightTitle {
-    background-color: #f0ad4e;
     color: white;
     text-align: center;
     font-size: 1.2em;
