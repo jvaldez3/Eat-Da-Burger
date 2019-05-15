@@ -1,11 +1,10 @@
 .jumbotron {
-    background-image: url('../image/Burger-Beyond-Shoreditch-restaurant-London_wrbm_large.png');
+    background-image: url('/assets/image/Burger-Beyond-Shoreditch-restaurant-London_wrbm_large.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     margin-top: 10px;
 }
-
 
 #newburger {
     border-radius: 5px;

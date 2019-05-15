@@ -23,11 +23,12 @@
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center" id="leftTitle"><strong>New Burgers</strong></div>
+                    <br>
                     <div class="panel-body">
                         <ul>
                             {{#each burgers}}
                             {{#unless devoured}}
-                            <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                            <span><strong>{{this.burger_name}} </strong></span>
                             <button type="button" class="devourBurger btn btn-dark btn-sm" id="devour-button"
                                 data-id="{{this.id}}" data-newDevoured="{{devour}}">DEVOUR</button>
                             <hr>
@@ -40,11 +41,12 @@
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center" id="rightTitle"><strong>Devoured Burgers</strong></div>
+                    <br>
                     <div class="panel-body">
                         <ul>
                             {{#each burgers}}
                             {{#if devoured}}
-                            <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                            <span><strong>{{this.burger_name}} </strong></span>
                             <button type="button" class="deleteBurger btn btn-dark btn-sm" id="delete"
                                 data-id="{{this.id}}" data-newDevoured="{{devour}}">DELETE</button>
                             <hr>
